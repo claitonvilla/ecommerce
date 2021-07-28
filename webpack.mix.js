@@ -1,13 +1,4 @@
-const path = require('path');
 const mix = require('laravel-mix');
-
-mix.webpackConfig({
-    resolve: {
-        alias: {
-            "@": path.resolve(__dirname, "resources/js/")
-        }
-    }
-});
 
 /*
  |--------------------------------------------------------------------------
@@ -27,4 +18,4 @@ mix.webpackConfig({
 
 mix.copyDirectory('resources/backend', 'public/backend');
 mix.copyDirectory('resources/frontend', 'public/frontend');
-mix.js('resources/js/app.js', 'public/backend/js');
+mix.js('resources/js/app.js', 'public/backend/js').vue();
