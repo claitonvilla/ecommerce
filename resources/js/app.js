@@ -6,7 +6,10 @@ window._ = require('lodash');
  * code may be modified to fit the specific needs of your application.
  */
 
-window.Vue = require('vue');
+ import Vue from 'vue/dist/vue.js';
+ window.Vue = Vue;
+ //window.Vue = require('vue');
+ //window.Vue = require('vue').default;
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
@@ -53,7 +56,9 @@ Vue.use(VueSwal);
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-
+ //Vue.component('attribute-values', require('./components/AttributeValues.vue').default);
+//import attribute-values from 'components/AttributeValues.vue';
+Vue.component('attribute-values', require('./components/AttributeValues.vue').default);
 const app = new Vue({
     el: '#app'
-});
+}); 

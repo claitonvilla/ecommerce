@@ -1,4 +1,13 @@
+const path = require('path');
 const mix = require('laravel-mix');
+
+mix.webpackConfig({
+    resolve: {
+        alias: {
+            "@": path.resolve(__dirname, "resources/js/")
+        }
+    }
+});
 
 /*
  |--------------------------------------------------------------------------
