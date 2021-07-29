@@ -96,8 +96,7 @@
                     </div>
                 </div>
                 <div class="tab-pane" id="values">
-                    <
-                     :attributeid="{{ $attribute->id }}"></attribute-values>
+                    <attribute-values id="{{ $attribute->id }}"></attribute-values>
                 </div>
             </div>
         </div>
