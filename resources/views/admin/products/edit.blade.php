@@ -21,6 +21,7 @@
                 <ul class="nav flex-column nav-tabs user-tabs">
                     <li class="nav-item"><a class="nav-link active" href="#general" data-toggle="tab">General</a></li>
                     <li class="nav-item"><a class="nav-link" href="#images" data-toggle="tab">Images</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#attributes" data-toggle="tab">Attributes</a></li>
                 </ul>
             </div>
         </div>
@@ -239,6 +240,9 @@
                         </div>
                     </div>
                 </div>
+                <div class="tab-pane" id="attributes">
+                    <product-attributes :productid="{{ $product->id }}"></product-attributes>
+                </div>
             </div>
         </div>
     </div>
@@ -247,6 +251,7 @@
     <script type="text/javascript" src="{{ asset('backend/js/plugins/select2.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('backend/js/plugins/dropzone-5.7.0/dist/min/dropzone.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('backend/js/plugins/bootstrap-notify.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('backend/js/app.js') }}"></script>
     <script>
         Dropzone.autoDiscover = false;
     

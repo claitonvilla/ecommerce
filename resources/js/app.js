@@ -59,6 +59,7 @@ Vue.use(VueSwal);
  //Vue.component('attribute-values', require('./components/AttributeValues.vue').default);
 //import attribute-values from 'components/AttributeValues.vue';
 Vue.component('attribute-values', require('./components/AttributeValues.vue').default);
+Vue.component('product-attributes', require('./components/ProductAttributes').default);
 const app = new Vue({
     el: '#app'
 }); 
