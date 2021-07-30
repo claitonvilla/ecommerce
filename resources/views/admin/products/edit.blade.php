@@ -240,13 +240,8 @@
 @endsection
 @push('scripts')
     <script type="text/javascript" src="{{ asset('backend/js/plugins/select2.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('backend/js/plugins/dropzone/dist/min/dropzone.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('backend/js/plugins/dropzone-5.7.0/dist/min/dropzone.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('backend/js/plugins/bootstrap-notify.min.js') }}"></script>
-    <script>
-        $( document ).ready(function() {
-            $('#categories').select2();
-        });
-    </script>
     <script>
         Dropzone.autoDiscover = false;
     
