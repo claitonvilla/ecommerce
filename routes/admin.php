@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\LoginController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\AttributeController;
@@ -47,7 +48,7 @@ Route::group(['prefix'  =>  'admin'], function () {
             Route::post('/delete-values', [AttributeValueController::class, 'deleteValues']);
         });
 
-        Route::group(['prefix'  =>   'brands'], function() {
+        Route::group(['prefix'  =>   'brands'], function () {
 
             Route::get('/', [BrandController::class, 'index'])->name('admin.brands.index');
             Route::get('/create', [BrandController::class, 'create'])->name('admin.brands.create');
@@ -55,7 +56,17 @@ Route::group(['prefix'  =>  'admin'], function () {
             Route::get('/{id}/edit', [BrandController::class, 'edit'])->name('admin.brands.edit');
             Route::post('/update', [BrandController::class, 'update'])->name('admin.brands.update');
             Route::get('/{id}/delete', [BrandController::class, 'delete'])->name('admin.brands.delete');
-        
+        });
+
+        Route::group(['prefix' => 'products'], function () {
+
+            Route::get('/', [ProductController::class, 'index'])->name('admin.products.index');
+            Route::get('/create', [ProductController::class, 'create'])->name('admin.products.create');
+            Route::post('/store', [ProductController::class, 'store'])->name('admin.products.store');
+            Route::get('/edit/{id}', [ProductController::class, 'edit'])->name('admin.products.edit');
+            Route::post('/update', [ProductController::class, 'update'])->name('admin.products.update');
+            Route::post('images/upload', 'Admin\ProductImageController@upload')->name('admin.products.images.upload');
+            Route::get('images/{id}/delete', 'Admin\ProductImageController@delete')->name('admin.products.images.delete');
         });
     });
 });
