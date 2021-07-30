@@ -1,9 +1,14 @@
 @extends('admin.app')
 @section('title') {{ $pageTitle }} @endsection
 @section('styles')
-    <link rel="stylesheet" type="text/css" href="{{ asset('backend/js/plugins/dropzone/dist/min/dropzone.min.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('backend/js/plugins/dropzone-5.7.0/dist/min/dropzone.min.css') }}"/>
+    <style>
+        body {
+            background: black;
+        }
+    </style>
 @endsection
-=@section('content')
+@section('content')
     <div class="app-title">
         <div>
             <h1><i class="fa fa-shopping-bag"></i> {{ $pageTitle }} - {{ $subTitle }}</h1>
@@ -194,44 +199,44 @@
                         </form>
                     </div>
                 </div>
-            </div>
-            <div class="tab-pane" id="images">
-                <div class="tile">
-                    <h3 class="tile-title">Upload Image</h3>
-                    <hr>
-                    <div class="tile-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <form action="" class="dropzone" id="dropzone" style="border: 2px dashed rgba(0,0,0,0.3)">
-                                    <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                    {{ csrf_field() }}
-                                </form>
-                            </div>
-                        </div>
-                        <div class="row d-print-none mt-2">
-                            <div class="col-12 text-right">
-                                <button class="btn btn-success" type="button" id="uploadButton">
-                                    <i class="fa fa-fw fa-lg fa-upload"></i>Upload Images
-                                </button>
-                            </div>
-                        </div>
-                        @if ($product->images)
-                            <hr>
+                <div class="tab-pane" id="images">
+                    <div class="tile">
+                        <h3 class="tile-title">Upload Image</h3>
+                        <hr>
+                        <div class="tile-body">
                             <div class="row">
-                                @foreach($product->images as $image)
-                                    <div class="col-md-3">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <img src="{{ asset('storage/'.$image->full) }}" id="brandLogo" class="img-fluid" alt="img">
-                                                <a class="card-link float-right text-danger" href="{{ route('admin.products.images.delete', $image->id) }}">
-                                                    <i class="fa fa-fw fa-lg fa-trash"></i>
-                                                </a>
+                                <div class="col-md-12">
+                                    <form action="" class="dropzone" id="dropzone" style="border: 2px dashed rgba(0,0,0,0.3)">
+                                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                        {{ csrf_field() }}
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="row d-print-none mt-2">
+                                <div class="col-12 text-right">
+                                    <button class="btn btn-success" type="button" id="uploadButton">
+                                        <i class="fa fa-fw fa-lg fa-upload"></i>Upload Images
+                                    </button>
+                                </div>
+                            </div>
+                            @if ($product->images)
+                                <hr>
+                                <div class="row">
+                                    @foreach($product->images as $image)
+                                        <div class="col-md-3">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <img src="{{ asset('storage/'.$image->full) }}" id="brandLogo" class="img-fluid" alt="img">
+                                                    <a class="card-link float-right text-danger" href="{{ route('admin.products.images.delete', $image->id) }}">
+                                                        <i class="fa fa-fw fa-lg fa-trash"></i>
+                                                    </a>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                @endforeach
-                            </div>
-                        @endif
+                                    @endforeach
+                                </div>
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>
