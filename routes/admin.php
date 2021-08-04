@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\LoginController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\CategoryController;
@@ -79,5 +80,10 @@ Route::group(['prefix'  =>  'admin'], function () {
             // Delete product attribute from the current product
             Route::post('attributes/delete', [ProductAttributeController::class, 'deleteAttribute']);
         });
+
+        Route::group(['prefix' => 'orders'], function () {
+            Route::get('/', [OrderController::class, 'index'])->name('admin.orders.index');
+            Route::get('/{order}/show', [OrderController::class, 'show'])->name('admin.orders.show');
+         });
     });
 });
